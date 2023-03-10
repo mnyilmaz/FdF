@@ -1,11 +1,11 @@
-
-#include <mlx.h>
-#include <mlx_int.h>
-#include "fdf.h"
+#include "minilibx_macos/mlx.h"
 
 int	main(void)
 {
-	void	*mlx;
+	void	*mlx_ptr;
+	void	*win_ptr;
 
-	mlx = mlx_init();
+	mlx_ptr = mlx_init();
+	win_ptr = mlx_new_window(mlx_ptr, 400, 400, "mlx deneme");
+	mlx_loop(mlx_ptr);
 }
