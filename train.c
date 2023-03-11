@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 18:38:16 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/10 18:49:48 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/11 12:02:11 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@
 /********************************** framework ************************************/
 
 			FRAMEWORK = -framework OpenGL -framework Appkit -g
+			LNUX = -lXext -lX11  -lm -ldl
 			LIBX = minilibx_macos/libmlx.a
-  
