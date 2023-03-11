@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:42 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/10 19:00:40 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:17:17 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <stdio.h>
+
+
 
 typedef struct s_fdf
 {
@@ -30,5 +33,9 @@ typedef struct s_fdf
 
 	struct s_fdf *next;
 }	t_fdf;
+
+
+int	get_height(char	*file_name);
+int	get_width(char	*file_name);
 
 #endif
