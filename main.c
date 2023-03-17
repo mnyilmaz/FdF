@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/11 17:26:04 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:20:09 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int deal_key(int key, void *param)
 
 int close_the_window(void)
 {
-	write (1, "asd\n", 4);
+	write (1, "Window Closed\n", 14);
 	exit(0);
 	return (1);
 }
@@ -42,10 +42,26 @@ int	main(void)
 	data = malloc(sizeof(t_fdf));
 	if (data == 0x0)
 		return(1);
-	
+	int	x;
+	int	y;
+
+	x = 200;
+	y = 200;
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 400, 400, "MLX Window");
-	mlx_pixel_put(data->mlx_ptr, data->win_ptr, 200, 200, 0x90e0ef);
+	mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0x90e0ef);
+
+	while(x > 100)
+	{
+		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xF2E9E4);
+		x--;
+	}
+
+ 	while(y < 300)
+	{
+		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xF2E9E4);
+		y++;
+	} 
 	
 	//This function allows user to deal with a key
 	//Using this will allow writig on the terminal when pressed X
