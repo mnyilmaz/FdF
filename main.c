@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/17 13:20:09 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/17 15:02:36 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int close_the_window(void)
 	exit(0);
 	return (1);
 }
-int	main(void)
+
+int	main(int argc, char *argv[])
 {
 	t_fdf *data;
 
@@ -61,12 +62,15 @@ int	main(void)
 	{
 		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xF2E9E4);
 		y++;
-	} 
+	}
 	
 	//This function allows user to deal with a key
 	//Using this will allow writig on the terminal when pressed X
 	mlx_key_hook(data->win_ptr, deal_key, NULL);
-	 mlx_hook(data->win_ptr, 17, 0, close_the_window, (void *)0);
+	mlx_hook(data->win_ptr, 17, 0, close_the_window, (void *)0);
+
+	get_width(argv[1]);
+	get_height(argv[1]);
 	
 	mlx_loop(data->mlx_ptr);
 }
