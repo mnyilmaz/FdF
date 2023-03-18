@@ -6,7 +6,7 @@
 #    By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:08:40 by mervyilm          #+#    #+#              #
-#    Updated: 2023/03/17 17:12:12 by mervyilm         ###   ########.fr        #
+#    Updated: 2023/03/18 13:23:57 by mervyilm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,12 @@ OBJ = $(SRC:.c=.o)
 
 CC = gcc
 FRAMEWORK = -framework OpenGL -framework Appkit
-CFLAGS = -Wextra -Wall -Werror #=address -g
+FLAGS = -Wextra -Wall -Werror
 LIBX = minilibx_macos/libmlx.a
 
 
 com:  $(OBJ)
-	@$(CC) $(CFLAGS) $(FRAMEWORK) $(OBJ) get_next_line/*c $(LIBX) -o fdf
+	@$(CC) $(FLAGS) $(FRAMEWORK) $(OBJ) get_next_line/*c $(LIBX) -o fdf
 	@./fdf maps/test_maps/10-70.fdf
 
 clean:
@@ -31,5 +31,7 @@ clean:
 fclean: clean
 	rm -rf fdf
 	rm -rf fdf.DSYM
+	
 re: fclean com
-.PHONY: all clean fclean re
+
+.PHONY: all clean fclean re com

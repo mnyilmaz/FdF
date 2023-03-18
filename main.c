@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/17 17:31:45 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/18 13:25:02 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,5 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	if (get_width(argv[1], map) == 0x0)
 		return (EXIT_FAILURE);
-
 	mlx_loop(map->mlx_ptr);
 }
