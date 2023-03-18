@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 16:10:53 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/02/02 18:03:21 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:58:35 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strchr(const char *s, int c)
 {
 	if (!*s)
-		return (NULL);
+		return (0);
 	while (*s)
 	{
 		if (*s == (unsigned char)c)
@@ -24,7 +24,7 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (!(unsigned char)c)
 		return ((char *)s);
-	return (NULL);
+	return (0);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -34,14 +34,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	if (!s)
-		return (NULL);
+		return (0);
 	if (ft_strlen(s) < len)
 		len = ft_strlen(s);
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
 	alc = (char *)malloc(sizeof(char) * (len + 1));
 	if (!alc)
-		return (NULL);
+		return (0);
 	while ((i < len) && (s[i + start] != 0))
 	{
 		alc[i] = s[i + start];
@@ -58,10 +58,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	if (!s1 || !s2)
-		return (NULL);
+		return (0);
 	alc = (char *)malloc(((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char)));
 	if (!alc)
-		return (NULL);
+		return (0);
 	while (*s1)
 	{
 		alc[i++] = *s1;
@@ -85,7 +85,7 @@ char	*ft_strdup(const char *s1)
 	len = ft_strlen(s1);
 	mlc = (char *)malloc(sizeof(char) * (len + 1));
 	if (!mlc)
-		return (NULL);
+		return (0);
 	ptr = mlc;
 	while (*s1)
 		*ptr++ = *s1++;

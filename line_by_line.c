@@ -6,13 +6,12 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:38 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/18 13:25:20 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/18 15:02:26 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <stdio.h>
-
 
 int	get_height(char	*file_name, t_map *map)
 {
