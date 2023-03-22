@@ -6,7 +6,7 @@
 #    By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:08:40 by mervyilm          #+#    #+#              #
-#    Updated: 2023/03/18 17:55:02 by mervyilm         ###   ########.fr        #
+#    Updated: 2023/03/22 20:42:30 by mervyilm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ LIBX = minilibx_macos/libmlx.a
 
 
 com:  $(OBJ)
-	@$(CC) $(FLAGS) $(FRAMEWORK) $(OBJ) get_next_line/*c $(LIBX) -o fdf
-	@./fdf maps/10-70.fdf
+	@$(CC) $(FLAGS) $(FRAMEWORK) $(OBJ) get_next_line/*c $(LIBX) -o fdf 
+	@./fdf maps/42.fdf
 
 clean:
 	rm -rf $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:42 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/18 18:16:46 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:52:29 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 #include <stdio.h>
 #define WIN1 1920
 #define WIN2 1080
-
 typedef struct s_map
 {
 	void	*mlx_ptr;
@@ -51,5 +50,7 @@ int		close_the_window(void);
 int		deal_key(int key, t_map *map);
 void	draw_line(t_map *map);
 void	my_mlx_pixel_put(t_map *map, int x, int y, int colour);
+void	draw_map(t_map *map, char **box);
+void	map_error(char *file_name);
 
 #endif
