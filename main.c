@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/22 21:58:51 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/22 22:04:10 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 	map->x = WIN1/2;
 	map->y = WIN2/2;
 	
-	map_error("fdf.fdfg");
+	map_error(argv[1]);
 
 	map->mlx_ptr = mlx_init();
 	
