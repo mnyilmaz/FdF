@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:42 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/22 20:52:29 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/22 21:58:05 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ void	draw_line(t_map *map);
 void	my_mlx_pixel_put(t_map *map, int x, int y, int colour);
 void	draw_map(t_map *map, char **box);
 void	map_error(char *file_name);
+
 
 #endif

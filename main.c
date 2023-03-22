@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/22 20:53:20 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/22 21:58:51 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char *argv[])
 	if (argc != 2)
 		return (EXIT_FAILURE);
 		
+		
 	map = ft_calloc(sizeof(t_map), 1);
 	if (map == 0x0)
 		return(0);
@@ -26,6 +27,8 @@ int	main(int argc, char *argv[])
 	map->x = WIN1/2;
 	map->y = WIN2/2;
 	
+	map_error("fdf.fdfg");
+
 	map->mlx_ptr = mlx_init();
 	
 	// haritaya göre pencere boyutu gönderilecek
@@ -54,7 +57,6 @@ int	main(int argc, char *argv[])
 	if (get_width(argv[1], map) == 0x0)
 		return (EXIT_FAILURE);
 	
-	map_error(argv[1]);
 		
 	//system("leaks fdf");
 	mlx_loop(map->mlx_ptr);

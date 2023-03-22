@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:38 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/22 20:46:37 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/03/22 21:01:31 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,8 @@ int	get_width(char	*file_name, t_map *map)
 	if (map->fd == -1)
 		return (0);
 
-	int height;
 	map->map = get_next_line(map->fd);
 	map->box = ft_split(map->map, ' ');
-
 	int j = 0;
 	while (map->box[map->width])
 	{
