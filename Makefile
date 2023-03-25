@@ -3,36 +3,39 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+         #
+#    By: calypso <calypso@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:08:40 by mervyilm          #+#    #+#              #
-#    Updated: 2023/03/22 21:43:52 by mervyilm         ###   ########.fr        #
+#    Updated: 2023/03/26 01:25:37 by calypso          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fdf.a
-SRC = $(wildcard *.c)
-OBJ = $(SRC:.c=.o)
+SRC = root/fdf_utils.c \
+	root/line_by_line.c \
+	root/main.c \
+	root/map_algorithm.c \
+	root/window.c \
+	get_next_line/get_next_line.c \
+	get_next_line/get_next_line_utils.c \
 
 
-CC = gcc
-FRAMEWORK = -framework OpenGL -framework Appkit
-FLAGS = -Wextra -Wall -Werror
-LIBX = minilibx_macos/libmlx.a
+FRAEMWORK = -lmlx -lXext -lX11 
+FLAGS = -Wall -Wextra -Werror
+LIBX = mlx/libmlx.a
 
-
-com:  $(OBJ)
-	@$(CC) $(FLAGS) $(FRAMEWORK) $(OBJ) get_next_line/*c $(LIBX) -o fdf 
-	@./fdf maps/42.fdf
-
+all:
+	@make -C ./mlx
+	@gcc $(SRC) $(FLAGS) $(LIBX) $(FRAEMWORK) -o fdf
+	
 clean:
-	rm -rf $(OBJ)
+	@make clean -C ./mlx
 
 fclean: clean
-	@rm -rf fdf
-	@rm -rf fdf.DSYM
-	@rm -r .vscode
-	
-re: fclean com
+	@rm -f fdf
 
-.PHONY: all clean fclean re com
+re: fclean all
+
+com:
+	@./fdf maps/42.fdf
+
+.PHONY: all clean fclean re
