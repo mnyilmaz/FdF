@@ -58,3 +58,45 @@ int	get_width(char	*file_name, t_map *map)
 	close(map->fd);
 	return(map->width);
 }
+
+void	reddit(char *file_name, t_map *map)
+{
+	char	*str;
+	int	i;
+	
+	map->matrix = (int **)malloc(sizeof(int *) * map->height + 1);
+	i = 0;
+	while (i <= map->height)
+		map->matix[i++] = (int *)malloc(sizeof(int *) * map->width + 1);
+	map->fd = open(file_name, O_RDONLY);
+	if (map->fd == -1)
+		return (0);
+	map->map = get_next_line(map->fd);
+	i = 0;
+	while (map->map)
+	{
+		free(map->map);
+		map->map = get_next_line(map->fd);
+		filled_with(map->matrix[i], map->map);
+		i++;
+	}
+	map->matrix[i] = 0;
+	close(map->fd);
+}
+
+void	filled_with(int *z_axis, char *line)
+{
+	char	**coordinates;
+	int	i;
+	
+	coordinates = ft_strsplit(line, ' ');
+	i = 0;
+	while (coordinates[i])
+	{
+		z_axis[i] = ft_atoi(coordinates[i]);
+		free(coordinates[i]);
+		i++;
+	}
+	free(coordinates);
+}
+
