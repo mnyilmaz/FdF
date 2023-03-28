@@ -31,6 +31,22 @@ int	main(int argc, char *argv[])
 	// haritaya göre pencere boyutu gönderilecek
 	map->win_ptr = mlx_new_window(map->mlx_ptr, WIN1, WIN2, "FdF");
 	
+	reddit(argv[1], map);
+	
+	int i = 0;
+	while (i < data->height)
+	{
+		int j = 0;
+		while (j < data->width)
+		{
+			printf("%d", map->matrix[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+	
+	
 	//Putting image
 	map->img_ptr = mlx_new_image(map->mlx_ptr, WIN1, WIN2);
 	map->addr = mlx_get_data_addr(map->img_ptr, &map->bits, &map->width, &map->endian);
