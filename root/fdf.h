@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:42 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/08 14:34:25 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/08 16:08:44 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ typedef struct s_map
 	int		x;
 	int		y;
 	int		z;
-
-	struct s_map *next;
 }	t_map;
 
 int		get_height(char	*file_name, t_map *map);

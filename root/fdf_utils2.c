@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 13:59:09 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/08 14:34:21 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:15:47 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,8 @@ int	ft_atoi(char *s)
 	}
 	return (result * sign);
 }
+
+/* void reddit(char *file_name, t_map *map)
+{
+	
+} */

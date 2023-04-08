@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/08 14:37:53 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/08 16:18:05 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,26 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 		return (EXIT_FAILURE);
-		
-	map = ft_calloc(sizeof(t_map), 1);
+
+ 	map = ft_calloc(sizeof(t_map), 1);
 	if (map == 0x0)
-		return(0);
-		
+		return(0); 
+	
+ 	if (get_height(argv[1], map) == 0x0)
+		return (EXIT_FAILURE);
+	if (get_width(argv[1], map) == 0x0)
+		return (EXIT_FAILURE); 
+	
+/* 	get_height(argv[1], map);
+	get_width(argv[1], map); */
+
 	map->x = WIN1/2;
 	map->y = WIN2/2;
-	
+
+	printf("%d\n", map->height);
  	reddit(argv[1], map);
 	
+	return (0);
 	int i = 0;
 	while (i < map->height)
 	{

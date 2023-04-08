@@ -6,11 +6,12 @@
 #    By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:08:40 by mervyilm          #+#    #+#              #
-#    Updated: 2023/04/08 14:12:41 by mervyilm         ###   ########.fr        #
+#    Updated: 2023/04/08 16:17:21 by mervyilm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = root/fdf_utils.c \
+	root/errors.c \
 	root/fdf_utils2.c\
 	root/line_by_line.c \
 	root/main.c \
