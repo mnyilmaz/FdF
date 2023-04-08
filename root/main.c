@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/18 18:17:00 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/08 14:37:53 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,13 @@ int	main(int argc, char *argv[])
 	map->x = WIN1/2;
 	map->y = WIN2/2;
 	
-	map->mlx_ptr = mlx_init();
-	
-	// haritaya göre pencere boyutu gönderilecek
-	map->win_ptr = mlx_new_window(map->mlx_ptr, WIN1, WIN2, "FdF");
-	
-	reddit(argv[1], map);
+ 	reddit(argv[1], map);
 	
 	int i = 0;
-	while (i < data->height)
+	while (i < map->height)
 	{
 		int j = 0;
-		while (j < data->width)
+		while (j < map->width)
 		{
 			printf("%d", map->matrix[i][j]);
 			j++;
@@ -47,7 +42,12 @@ int	main(int argc, char *argv[])
 	}
 	
 	
-	//Putting image
+/* 	map->mlx_ptr = mlx_init();
+	
+	// haritaya göre pencere boyutu gönderilecek
+	map->win_ptr = mlx_new_window(map->mlx_ptr, WIN1, WIN2, "FdF");
+	
+ 	//Putting image
 	map->img_ptr = mlx_new_image(map->mlx_ptr, WIN1, WIN2);
 	map->addr = mlx_get_data_addr(map->img_ptr, &map->bits, &map->width, &map->endian);
 	
@@ -67,6 +67,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 		
 	system("leaks fdf");
-	mlx_loop(map->mlx_ptr);
+	mlx_loop(map->mlx_ptr);  */
+	
 }
  

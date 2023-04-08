@@ -6,11 +6,13 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:51:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/17 15:02:30 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/08 13:57:37 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+
 
 void	read_line(char *chr, int fd, char **schr)
 {

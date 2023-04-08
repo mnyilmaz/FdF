@@ -44,3 +44,5 @@
 // 			FRAMEWORK = -framework OpenGL -framework Appkit -g
 // 			LNUX = -lXext -lX11  -lm -ldl
 // 			LIBX = minilibx_macos/libmlx.a
+//			FRAMEWORK = -Lmlx -lmlx -framework OpenGL -framework AppKit
+//			-fsanitize=address

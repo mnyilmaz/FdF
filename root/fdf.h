@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calypso <calypso@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:42 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/26 01:18:35 by calypso          ###   ########.fr       */
+/*   Updated: 2023/04/08 14:34:25 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_map
 	void	*img_ptr;
 	char	*addr;
 	char	**box;
+	int		**matrix;
 	char	*map;
 	int		endian;
 	int		height;
@@ -53,5 +54,9 @@ int		close_the_window(void);
 int		deal_key(int key, t_map *map);
 void	draw_line(t_map *map);
 void	my_mlx_pixel_put(t_map *map, int x, int y, int colour);
+void	filled_with(int *z_axis, char *line);
+void	reddit(char *file_name, t_map *map);
+int		ft_atoi(char *s);
+void	ac(int ac);
 
 #endif
