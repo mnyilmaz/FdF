@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/08 16:18:05 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/08 16:22:48 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	main(int argc, char *argv[])
 	map->x = WIN1/2;
 	map->y = WIN2/2;
 
-	printf("%d\n", map->height);
  	reddit(argv[1], map);
 	
 	return (0);

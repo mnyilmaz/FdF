@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:38 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/08 16:21:12 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/08 16:22:33 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ int	get_width(char	*file_name, t_map *map)
 
 void	reddit(char *file_name, t_map *map)
 {
-	printf("height: %d", map->height);
+	printf("height: %d\n", map->height);
+	printf("width: %d\n", map->width);
+
 	int	i;
 	int	fd;
 	int size;
