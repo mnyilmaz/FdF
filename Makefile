@@ -6,19 +6,19 @@
 #    By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:08:40 by mervyilm          #+#    #+#              #
-#    Updated: 2023/04/08 16:17:21 by mervyilm         ###   ########.fr        #
+#    Updated: 2023/04/14 16:18:14 by mervyilm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = root/fdf_utils.c \
-	root/errors.c \
-	root/fdf_utils2.c\
-	root/line_by_line.c \
-	root/main.c \
-	root/map_algorithm.c \
-	root/window.c \
-	get_next_line/get_next_line.c \
-	get_next_line/get_next_line_utils.c \
+SRC = 	root/fdf_utils.c \
+		root/errors.c \
+		root/fdf_utils2.c\
+		root/line_by_line.c \
+		root/main.c \
+		root/map_algorithm.c \
+		root/window.c \
+		get_next_line/get_next_line.c \
+		get_next_line/get_next_line_utils.c \
 
 
 FRAEMWORK = -framework OpenGL -framework Appkit -g
@@ -26,19 +26,21 @@ FLAGS = -Wall -Wextra -Werror
 LIBX = mlx/libmlx.a
 SEG = -fsanitize=address
 
+.SILENT:
+
 all:
-	@make -C ./mlx
-	@gcc $(SRC) $(FLAGS) $(LIBX) $(FRAEMWORK) $(SEG) -o fdf
+	make -w -C ./mlx 2>/dev/null || true
+	gcc $(SRC) $(FLAGS) $(LIBX) $(FRAEMWORK) $(SEG) -o fdf
 	
 clean:
-	@make clean -C ./mlx
+	make clean -C ./mlx 2>/dev/null || true
 
 fclean: clean
-	@rm -f fdf
+	rm -rf fdf 2>/dev/null || true
+
+com:
+	./fdf maps/42.fdf
 
 re: fclean all
 
-com:
-	@./fdf maps/42.fdf
-
-.PHONY: all clean fclean re
+.PHONY: all clean fclean com re

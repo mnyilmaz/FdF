@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/08 16:22:48 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/14 16:36:23 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,16 @@ int	main(int argc, char *argv[])
 
  	reddit(argv[1], map);
 	
-	return (0);
 	int i = 0;
 	while (i < map->height)
 	{
 		int j = 0;
 		while (j < map->width)
 		{
-			printf("%d", map->matrix[i][j]);
+			if(map->matrix[i][j] > 9)
+				printf("%d ", map->matrix[i][j]);
+			else
+				printf("%d  ", map->matrix[i][j]);
 			j++;
 		}
 		printf("\n");

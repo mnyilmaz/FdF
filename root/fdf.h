@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:42 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/08 16:08:44 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:21:19 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_map
 	int		height;
 	int		width;
 	int		bits;
+	int		size;
 	int		fd;
 	int		x;
 	int		y;
@@ -52,7 +53,6 @@ int		close_the_window(void);
 int		deal_key(int key, t_map *map);
 void	draw_line(t_map *map);
 void	my_mlx_pixel_put(t_map *map, int x, int y, int colour);
-void	filled_with(int *z_axis, char *line);
 void	reddit(char *file_name, t_map *map);
 int		ft_atoi(char *s);
 void	ac(int ac);

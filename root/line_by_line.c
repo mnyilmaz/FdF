@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:38 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/08 16:22:33 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/14 16:36:53 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,52 +67,28 @@ int	get_width(char	*file_name, t_map *map)
 
 void	reddit(char *file_name, t_map *map)
 {
-	printf("height: %d\n", map->height);
-	printf("width: %d\n", map->width);
-
 	int	i;
-	int	fd;
-	int size;
-	map->map = 0x0;
+	int j;
+	//map->map = 0x0;
 
-	size = ((map->height) * (map->width));
 	i = 0;
-	fd = open(file_name, O_RDONLY);
-	if (fd == -1)
+	map->fd = open(file_name, O_RDONLY);
+	if (map->fd == -1)
 		return ;
 	
-	map->matrix = (int **)malloc(sizeof(int) * (size + 1));
-	while (i <= map->height)
+	map->matrix = malloc(sizeof(int *) * (map->height));
+	while (i < map->height)
 	{
-		map->matrix[i] = (int *)malloc(sizeof(int) * (map->width + 1));
-		i++;
-	}
-		
-	i = 0;
-	map->map = get_next_line(map->fd);
-	while (map->map && map != 0x0)
-	{
-		//free(map->map);
+		j = 0;
 		map->map = get_next_line(map->fd);
-		filled_with(map->matrix[i], map->map);
+		map->box = ft_split(map->map, ' ');
+		map->matrix[i] = malloc(sizeof(int) * (map->width));
+		while (j < map->width)
+		{
+			map->matrix[i][j] = ft_atoi(map->box[j]);
+			j++;
+		}
 		i++;
 	}
-	//map->matrix[i] = 0; 
-	close(fd);
-}
-
-void	filled_with(int *z_axis, char *line)
-{
-	char	**coordinates;
-	int	i;
-	
-	coordinates = ft_split(line, ' ');
-	i = 0;
-	while (coordinates[i])
-	{
-		z_axis[i] = ft_atoi(coordinates[i]);
-		//free(coordinates[i]);
-		i++;
-	}
-	//free(coordinates);
+	close(map->fd);
 }
