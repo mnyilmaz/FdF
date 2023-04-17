@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+         #
+#    By: calypso <calypso@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:08:40 by mervyilm          #+#    #+#              #
-#    Updated: 2023/04/14 16:18:14 by mervyilm         ###   ########.fr        #
+#    Updated: 2023/04/18 01:42:47 by calypso          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,23 +20,25 @@ SRC = 	root/fdf_utils.c \
 		get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c \
 
-
 FRAEMWORK = -framework OpenGL -framework Appkit -g
+LIN = -lXext -lX11 -lm -ldl
 FLAGS = -Wall -Wextra -Werror
 LIBX = mlx/libmlx.a
 SEG = -fsanitize=address
+DIR = --no-print-directory
+ERR = 2>/dev/null || true
 
 .SILENT:
 
 all:
-	make -w -C ./mlx 2>/dev/null || true
-	gcc $(SRC) $(FLAGS) $(LIBX) $(FRAEMWORK) $(SEG) -o fdf
+	make $(DIR) -w -C ./mlx $(ERR)
+	gcc $(SRC) $(FLAGS) $(LIBX) $(LIN) $(SEG) -o fdf
 	
 clean:
-	make clean -C ./mlx 2>/dev/null || true
+	make $(DIR) clean -C ./mlx $(ERR)
 
 fclean: clean
-	rm -rf fdf 2>/dev/null || true
+	rm -rf fdf $(ERR)
 
 com:
 	./fdf maps/42.fdf

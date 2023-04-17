@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_by_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: calypso <calypso@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:38 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/14 16:36:53 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/18 01:35:56 by calypso          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 
 int	get_height(char	*file_name, t_map *map)
 {
-	int	i;
-
 	map->fd = open(file_name, O_RDONLY);
 	if (map->fd == -1)
 		return (0);
 	map->map = get_next_line(map->fd);
-	i = 0;
 	while (map->map)
 	{
 		map->height++;
