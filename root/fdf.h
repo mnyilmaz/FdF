@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:42 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/14 13:21:19 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:20:25 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,8 @@ void	my_mlx_pixel_put(t_map *map, int x, int y, int colour);
 void	reddit(char *file_name, t_map *map);
 int		ft_atoi(char *s);
 void	ac(int ac);
+void	draw_line_bresenham(float x, float y, float x1, float y1, t_map *map);
+void	actually_draw(t_map *map);
+void	fake_map(t_map *map);
 
 #endif

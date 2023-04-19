@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/14 16:36:23 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:13:46 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ int	main(int argc, char *argv[])
 	if (get_width(argv[1], map) == 0x0)
 		return (EXIT_FAILURE); 
 	
-/* 	get_height(argv[1], map);
-	get_width(argv[1], map); */
-
 	map->x = WIN1/2;
 	map->y = WIN2/2;
 
@@ -51,34 +48,35 @@ int	main(int argc, char *argv[])
 		printf("\n");
 		i++;
 	}
+	//draw_line_bresenham(map->x,map->y,5,5,map);
 	
 	
-/* 	map->mlx_ptr = mlx_init();
+ 	map->mlx_ptr = mlx_init();
 	
 	// haritaya göre pencere boyutu gönderilecek
 	map->win_ptr = mlx_new_window(map->mlx_ptr, WIN1, WIN2, "FdF");
 	
  	//Putting image
 	map->img_ptr = mlx_new_image(map->mlx_ptr, WIN1, WIN2);
-	map->addr = mlx_get_data_addr(map->img_ptr, &map->bits, &map->width, &map->endian);
+	//draw_line(map);
+	fake_map(map);
 	
-	my_mlx_pixel_put(map, 5, 5, 0x90e0ef);
-	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, map->x, map->y);
+	
 
-	draw_line(map);
-	
+/*  	int x = map->matrix[0][0];
+	int y = map->matrix[0][0];
+	int x1 = map->matrix[0][1];
+	int y1 = map->matrix[1][0];  */
+	//draw_line_bresenham(x,y,x1,y1,map);
+	//actually_draw(map);
+
 	//This function allows user to deal with a key
 	//Using this will allow writig on the terminal when pressed X
 	mlx_key_hook(map->win_ptr, deal_key, NULL); //tuş göndermek için
 	mlx_hook(map->win_ptr, 17, 0, close_the_window, (void *)0); //pencere kapatmak için
-	
-	if (get_height(argv[1], map) == 0x0)
-		return (EXIT_FAILURE);
-	if (get_width(argv[1], map) == 0x0)
-		return (EXIT_FAILURE);
 		
-	system("leaks fdf");
-	mlx_loop(map->mlx_ptr);  */
+	//system("leaks fdf");
+	mlx_loop(map->mlx_ptr);  
 	
 }
  

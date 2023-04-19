@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 14:53:07 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/18 18:16:21 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/19 15:31:04 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 int	close_the_window(void)
 {
-	write (1, "Window Closed\n", 15);
+	write (1, "\033[1;41mWindow Closed\033[0m\n", 26);
 	exit(0);
 	return (1);
 }

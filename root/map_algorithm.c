@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_algorithm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calypso <calypso@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 13:30:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/26 00:18:46 by calypso          ###   ########.fr       */
+/*   Updated: 2023/04/19 18:03:24 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,33 +22,61 @@ void	my_mlx_pixel_put(t_map *map, int x, int y, int colour)
 
 void	draw_line(t_map *map)
 {
+	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
 	while(map->x > 100)
 	{
-		my_mlx_pixel_put(map, 5, 5, 0x90e0ef);
-		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, map->x, map->y);
+		mlx_pixel_put(map->mlx_ptr, map->win_ptr, 5, 5, 0x003EFF);
 		map->x--;
 	}
 
  	while(map->y < 300)
 	{
-		my_mlx_pixel_put(map, 5, 5, 0x90e0ef);
-		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, map->x, map->y);
+		mlx_pixel_put(map->mlx_ptr, map->win_ptr, 5, 5, 0x003EFF);
 		map->y++;
 	}
 }
 
 void	draw_line_bresenham(float x, float y, float x1, float y1, t_map *map)
 {
-	float	x_road;
-	float	y_road;
-	
-	x_road = x1 - x;
-	y_road = y1 - y;
-	while ((int)(x - x1)  || (int)(y - y1))
+	float	dx;
+	float	dy;
+
+	dx = x1 - x;
+	dy = y1 - y;
+	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
+	while ((int)(x - x1) || (int)(y - y1))
 	{
 		my_mlx_pixel_put(map, x, y, 0x90e0ef);
-		x += x_road;
-		y += y_road;
+		x += dx;
+		y += dy;
+	}
+}
+
+void	fake_map(t_map *map)
+{
+	int x = 0;
+	int y = 0;
+	int x_r = (map->x)/2;
+	int y_r = (map->y)/2;
+	
+	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
+	printf("%d\n", map->height);
+	while(y < map->height)
+	{
+		x = 0;
+		x_r = (map->x)/2;
+		while (x < map->width)
+		{
+			//printf("%d ", map->matrix[y][x]);
+			if (map->matrix[y][x] != 0)
+				mlx_pixel_put(map->mlx_ptr, map->win_ptr, x_r, y_r, 0x8E236B);
+			else
+				mlx_pixel_put(map->mlx_ptr, map->win_ptr, x_r, y_r, 0xE0EEEE);
+			x++;
+			x_r += 7;
+		}
+		y_r += 7;
+		y++;
 	}
 }
 
