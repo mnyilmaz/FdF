@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 13:30:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/19 19:03:53 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/19 19:16:35 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	my_mlx_pixel_put(t_map *map, int x, int y, int colour)
 
 void	draw_line(t_map *map)
 {
-	//mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
+	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
 	while(map->x > 100)
 	{
 		mlx_pixel_put(map->mlx_ptr, map->win_ptr, 5, 5, 0x003EFF);
@@ -36,15 +36,25 @@ void	draw_line(t_map *map)
 	}
 }
 
+void loop(int x, int y, int i, t_map *map)
+{
+	x++;
+	while(x < i)
+	{
+		mlx_pixel_put(map->mlx_ptr, map->win_ptr, x, y, 0xFFFF00);
+		x++;
+	}
+	
+}
+
 void	fake_map(t_map *map)
 {
 	int x = 0;
 	int y = 0;
-	int i = 7;
+	int i = 44;
 	int x_r = (map->x)/2;
 	int y_r = (map->y)/2;
 	
-	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
 	while(y < map->height)
 	{
 		x = 0;
@@ -55,7 +65,8 @@ void	fake_map(t_map *map)
 			if (map->matrix[y][x] != 0)
 				mlx_pixel_put(map->mlx_ptr, map->win_ptr, x_r, y_r, 0x8E236B);
 			else
-				mlx_pixel_put(map->mlx_ptr, map->win_ptr, x_r, y_r, 0xE0EEEE);
+				mlx_pixel_put(map->mlx_ptr, map->win_ptr, x_r, y_r, 0xF8F8FF);
+			loop(x_r, y_r, 44, map);
 			x++;
 			x_r += i;
 		}
@@ -64,6 +75,7 @@ void	fake_map(t_map *map)
 	}
 }
 
+
 void	draw_line_bresenham(float x, float y, float x1, float y1, t_map *map)
 {
 	float	dx;
@@ -71,7 +83,6 @@ void	draw_line_bresenham(float x, float y, float x1, float y1, t_map *map)
 
 	dx = x1 - x;
 	dy = y1 - y;
-	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
 	while ((int)(x - x1) || (int)(y - y1))
 	{
 		mlx_pixel_put(map->mlx_ptr, map->win_ptr, x, y, 0x8E236B);

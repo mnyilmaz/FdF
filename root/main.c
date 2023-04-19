@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/19 18:53:14 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/19 19:06:30 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ int	main(int argc, char *argv[])
 		i++;
 	}
 	
-	
-	
  	map->mlx_ptr = mlx_init();
 	
 	// haritaya göre pencere boyutu gönderilecek
@@ -58,6 +56,7 @@ int	main(int argc, char *argv[])
 	
  	//Putting image
 	map->img_ptr = mlx_new_image(map->mlx_ptr, WIN1, WIN2);
+	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
 	//draw_line(map);
 	fake_map(map);
 	//draw_line_bresenham(map->x,map->y,5,5,map);
