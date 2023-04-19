@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/19 17:13:46 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:53:14 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int argc, char *argv[])
 		printf("\n");
 		i++;
 	}
-	//draw_line_bresenham(map->x,map->y,5,5,map);
+	
 	
 	
  	map->mlx_ptr = mlx_init();
@@ -60,14 +60,7 @@ int	main(int argc, char *argv[])
 	map->img_ptr = mlx_new_image(map->mlx_ptr, WIN1, WIN2);
 	//draw_line(map);
 	fake_map(map);
-	
-	
-
-/*  	int x = map->matrix[0][0];
-	int y = map->matrix[0][0];
-	int x1 = map->matrix[0][1];
-	int y1 = map->matrix[1][0];  */
-	//draw_line_bresenham(x,y,x1,y1,map);
+	//draw_line_bresenham(map->x,map->y,5,5,map);
 	//actually_draw(map);
 
 	//This function allows user to deal with a key
