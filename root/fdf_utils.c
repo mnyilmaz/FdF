@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:33:15 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/03/17 16:52:56 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/07/02 22:14:18 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	counter(char const *s, char c)
+int	counter(char const *s, char c)
 {
 	int	counter;
 

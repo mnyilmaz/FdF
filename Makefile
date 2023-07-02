@@ -3,17 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+         #
+#    By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:08:40 by mervyilm          #+#    #+#              #
-#    Updated: 2023/04/19 15:24:31 by mervyilm         ###   ########.fr        #
+#    Updated: 2023/07/03 01:38:44 by mervenuryil      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = 	root/fdf_utils.c \
-		root/errors.c \
 		root/fdf_utils2.c\
-		root/line_by_line.c \
+		root/errors.c \
+		root/color.c \
+		root/reading_the_map.c \
 		root/main.c \
 		root/map_algorithm.c \
 		root/window.c \
@@ -21,7 +22,6 @@ SRC = 	root/fdf_utils.c \
 		get_next_line/get_next_line_utils.c \
 
 FRAEMWORK = -framework OpenGL -framework Appkit -g
-LIN = -lXext -lX11 -lm -ldl
 FLAGS = -Wall -Wextra -Werror
 LIBX = mlx/libmlx.a
 SEG = -fsanitize=address
@@ -31,7 +31,7 @@ G = \033[1;42m
 R = \033[1;41m
 B = \033[1;44m
 END = \033[0m
-MAP = 42.fdf
+MAP = 0.fdf
 
 .SILENT:
 
@@ -39,7 +39,7 @@ all:
 	make $(DIR) -w -C ./mlx $(ERR)
 	gcc $(SRC) $(FLAGS) $(LIBX) $(FRAEMWORK) $(SEG) -o fdf
 	echo "$(G)Compiled - to run enter 'make run'$(END)"
-	echo "$(R)Default map is 42, to change enter the Makefile$(END)"
+	echo "$(R)Default map is eco, to change organize the Makefile$(END)"
 
 clean:
 	make $(DIR) clean -C ./mlx $(ERR)

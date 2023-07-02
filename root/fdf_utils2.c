@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_utils2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 13:59:09 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/08 15:15:47 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/07/03 01:19:18 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,18 @@
 
 int	ft_atoi(char *s)
 {
-	int	sign;
-	int	result;
+	int sign;
+	int res;
+	int i;
 
-	result = 0;
-	sign = 1;
-	while (*s == 32 || (*s > 8 && *s < 14))
-		s++;
-	if (*s == 45 || *s == 43)
-	{
-		if (*s == 45)
-			sign *= -1;
-		s++;
-	}
-	while (*s > 47 && *s < 58)
-	{
-		result = (*s - 48) + (result * 10);
-		s++;
-	}
-	return (result * sign);
+	res = 0;
+	i = 0;
+	while ((s[i] > 8 && s[i] < 20) || s[i] == ' ')
+		i++;
+	sign = (s[i] == '-') ? -1 : 1;
+	if (s[i] == '+' || s[i] == '-')
+		i++;
+	while ((s[i] >= '0' && s[i] <= '9') && s[i] != '\0')
+		res = res * 10 + (s[i++] - '0');
+	return (res * sign);
 }
-
-/* void reddit(char *file_name, t_map *map)
-{
-	
-} */

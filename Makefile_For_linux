@@ -1,9 +1,0 @@
-CC = gcc
-FRAMEWORK = -lXext -lX11  -lm -ldl
-LIBX = minilibx_macos/libmlx.a
-
-com: 
-	@$(CC) main.c $(LIBX) $(FRAMEWORK) -o main
-	@./main
-
-.PHONY: com
