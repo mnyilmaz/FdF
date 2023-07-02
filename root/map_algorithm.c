@@ -6,20 +6,18 @@
 /*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 13:30:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/07/03 01:50:50 by mervenuryil      ###   ########.fr       */
+/*   Updated: 2023/07/03 02:19:23 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-# define MAX(a,b) (a > b ? a : b)
-# define MOD(a) ((a < 0) ? -a : a)
 
-// void	my_mlx_pixel_put(t_map *map, int x, int y, int colour)
+// void	my_mlx_pixel_put(t_map *map, int x, int y)
 // {
 // 	char	*dst;
 
 // 	dst = map->addr + (y * map->width + x * (map->bits / 8));
-// 	*(unsigned int*)dst = colour;
+// 	*(unsigned int*)dst = map->pixel_color;
 // }
 
 unsigned int	color_picker(float x, float y, t_map *map)
@@ -90,11 +88,12 @@ void	draw_line(float x, float y, float x1, float y1, t_map *map)
 	shift(&x, &y, &x1, &y1, map);
 	dx = x1 - x;
 	dy = y1 - y;
-	max = MAX(MOD(dx),MOD(dy));
+	max = fmax(fabs(dx), fabs(dy));
 	dx /= max;
 	dy /= max;
 	while ((int)(x - x1) || (int)(y - y1))
 	{
+		//my_mlx_pixel_put(map, x, y);
 		mlx_pixel_put(map->mlx_ptr, map->win_ptr, x, y, map->pixel_color);
 		x += dx;
 		y += dy;

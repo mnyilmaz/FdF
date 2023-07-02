@@ -6,7 +6,7 @@
 /*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:42 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/07/03 01:51:00 by mervenuryil      ###   ########.fr       */
+/*   Updated: 2023/07/03 02:18:08 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void			get_int_value_of_the_box(t_map *map);
 unsigned int	color_picker(float x, float y, t_map *map);
 void			draw_line(float x, float y, float x1, float y1, t_map *map);
 void			draw_map(t_map *map);
+void	my_mlx_pixel_put(t_map *map, int x, int y);
 
 #endif
