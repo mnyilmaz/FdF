@@ -6,7 +6,7 @@
 /*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:42 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/07/03 01:24:43 by mervenuryil      ###   ########.fr       */
+/*   Updated: 2023/07/03 01:51:00 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,21 @@ typedef struct s_map
 	int				is_iso;
 }	t_map;
 
-
-int		counter(char const *s, char c);
-char	**ft_split(char const *s, char c);
-void	free_str(char **str);
-void	*ft_calloc(size_t count, size_t size);
-int		close_the_window(void);
-int		deal_key(int key, t_map *map);
-int		ft_atoi(char *s);
-void	ac(int ac);
-float	absolutely(float i);
-int		max(int x, int y);
-void	russian_draw(float x, float y, float x1, float y1, t_map *map);
-void	russian_roulette(t_map *map);
-void	zoomed(float *x, float *y, float *x1, float *y1, t_map *map);
-int		get_height(t_map *map);
-int		get_width(t_map *map);
-void	get_int_value_of_the_box(t_map *map);
-unsigned int	fake_map(t_map *map);
+int				counter(char const *s, char c);
+char			**ft_split(char const *s, char c);
+void			free_str(char **str);
+void			*ft_calloc(size_t count, size_t size);
+int				close_the_window(void);
+int				deal_key(int key, t_map *map);
+int				ft_atoi(char *s);
+void			ac(int ac);
+float			absolutely(float i);
+int				max(int x, int y);
+int				get_height(t_map *map);
+int				get_width(t_map *map);
+void			get_int_value_of_the_box(t_map *map);
+unsigned int	color_picker(float x, float y, t_map *map);
+void			draw_line(float x, float y, float x1, float y1, t_map *map);
+void			draw_map(t_map *map);
 
 #endif

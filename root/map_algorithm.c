@@ -6,7 +6,7 @@
 /*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 13:30:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/07/03 01:27:42 by mervenuryil      ###   ########.fr       */
+/*   Updated: 2023/07/03 01:50:50 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ unsigned int	color_picker(float x, float y, t_map *map)
 	return(map->pixel_color);
 }
 
-void	zoomed(float *x, float *y, float *x1, float *y1, t_map *map)
+void	zoom(float *x, float *y, float *x1, float *y1, t_map *map)
 {
 	*x *= map->zoom;
 	*x1 *= map->zoom;
@@ -50,7 +50,7 @@ void	zoomed(float *x, float *y, float *x1, float *y1, t_map *map)
 	*y1 *= map->zoom;
 }
 
-void	spin_me_right_round(float *x, float *y, float *x1, float *y1, t_map *map)
+void	shift(float *x, float *y, float *x1, float *y1, t_map *map)
 {
 	*x += map->shift;
 	*x1 += map->shift;
@@ -58,7 +58,7 @@ void	spin_me_right_round(float *x, float *y, float *x1, float *y1, t_map *map)
 	*y1 += map->shift;
 }
 
-void	isometric(float *x, float *y, int z, t_map *map)
+void	isometry(float *x, float *y, int z, t_map *map)
 {
 	*x = (*x - *y) * cos(map->angle);
 	*y = (*x + *y) * sin(map->angle) - z;
@@ -76,7 +76,7 @@ void	get_z(float x, float y, float x1, float y1, t_map *map)
 	}
 }
 
-void	russian_draw(float x, float y, float x1, float y1, t_map *map)
+void	draw_line(float x, float y, float x1, float y1, t_map *map)
 {
 	float	dx;
 	float	dy;
@@ -84,10 +84,10 @@ void	russian_draw(float x, float y, float x1, float y1, t_map *map)
 
 	map->pixel_color = color_picker(x, y, map);
 	get_z(x, y, x1, y1, map);
-	zoomed(&x, &y, &x1, &y1, map);
-	isometric(&x, &y, map->z, map);
-	isometric(&x1, &y1, map->z1, map);
-	spin_me_right_round(&x, &y, &x1, &y1, map);
+	zoom(&x, &y, &x1, &y1, map);
+	isometry(&x, &y, map->z, map);
+	isometry(&x1, &y1, map->z1, map);
+	shift(&x, &y, &x1, &y1, map);
 	dx = x1 - x;
 	dy = y1 - y;
 	max = MAX(MOD(dx),MOD(dy));
@@ -101,7 +101,7 @@ void	russian_draw(float x, float y, float x1, float y1, t_map *map)
 	}	
 }
 
-void	russian_roulette(t_map *map)
+void	draw_map(t_map *map)
 {
 	int	x;
 	int	y;
@@ -113,9 +113,9 @@ void	russian_roulette(t_map *map)
 		while (x <= map->width)
 		{
 			if (x < map->width)
-				russian_draw(x, y, x + 1, y, map);
+				draw_line(x, y, x + 1, y, map);
 			if (y < map->height)
-				russian_draw(x, y, x, y + 1, map);
+				draw_line(x, y, x, y + 1, map);
 			x++;
 		}
 		y++;

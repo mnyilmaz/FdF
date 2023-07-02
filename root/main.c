@@ -6,7 +6,7 @@
 /*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:08:44 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/07/03 01:38:00 by mervenuryil      ###   ########.fr       */
+/*   Updated: 2023/07/03 01:51:18 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char *argv[])
 	map->img_ptr = mlx_new_image(map->mlx_ptr, map->win_width, map->height);
 	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
 
-	russian_roulette(map);
+	draw_map(map);
 
 	mlx_key_hook(map->win_ptr, deal_key, NULL);
 	mlx_hook(map->win_ptr, 17, 0, close_the_window, (void *)0); 

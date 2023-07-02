@@ -6,7 +6,7 @@
 #    By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:08:40 by mervyilm          #+#    #+#              #
-#    Updated: 2023/07/03 01:38:44 by mervenuryil      ###   ########.fr        #
+#    Updated: 2023/07/03 01:51:46 by mervenuryil      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ G = \033[1;42m
 R = \033[1;41m
 B = \033[1;44m
 END = \033[0m
-MAP = 0.fdf
+MAP = eco.fdf
 
 .SILENT:
 
