@@ -6,7 +6,7 @@
 /*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:33:15 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/07/02 22:14:18 by mervenuryil      ###   ########.fr       */
+/*   Updated: 2023/07/29 23:24:13 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	**ft_split(char const *s, char c)
 	while (i < cnt)
 	{
 		while (*s == c)
-		s++;
+			s++;
 		len = 0;
 		while (s[len] != c && s[len])
 			len++;
@@ -63,31 +63,39 @@ void	free_str(char **str)
 {
 	int	i;
 
-	i = -1;
-	while(str[++i])
+	i = 0;
+	while (str[i])
+	{
 		free(str[i]);
+		i++;
+	}
 	free(str);
 }
 
-void	ft_bzero(void *s, size_t n)
+int	ft_atoi(char *s)
 {
-	size_t	i;
+	int	sign;
+	int	res;
+	int	i;
 
+	res = 0;
 	i = 0;
-	while (i < n)
+	while ((s[i] > 8 && s[i] < 20) || s[i] == ' ')
+		i++;
+	if (s[i] == '-')
+		sign = -1;
+	else
+		sign = 1;
+	if (s[i] == '+' || s[i] == '-')
+		i++;
+	while ((s[i] >= '0' && s[i] <= '9') && s[i] != '\0')
 	{
-		((unsigned char *)s)[i] = 0;
+		res = res * 10 + (s[i] - 48);
+		if (res * sign < -2147483648)
+			return (0);
+		else if (res * sign > 2147483647)
+			return (-1);
 		i++;
 	}
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*cal;
-
-	cal = malloc(count * size);
-	if (!cal)
-		return (0);
-	ft_bzero(cal, count * size);
-	return (cal);
+	return (res * sign);
 }

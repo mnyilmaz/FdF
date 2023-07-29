@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 14:53:07 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/04/19 15:31:04 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/07/03 17:18:29 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 int	close_the_window(void)
 {
-	write (1, "\033[1;41mWindow Closed\033[0m\n", 26);
+	write (1, "\033[1;44m Window Closed \033[0m\n", 28);
 	exit(0);
 	return (1);
 }
@@ -34,9 +34,4 @@ int	deal_key(int key, t_map *map)
 		mlx_destroy_image(map->mlx_ptr, map->img_ptr);
 	}
 	return (0);
-}
-
-int	put_image(void)
-{
-	return(1);
 }
